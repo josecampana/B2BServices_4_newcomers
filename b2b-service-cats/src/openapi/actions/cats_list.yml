@@ -1,0 +1,25 @@
+get:
+  operationId: v1.cats
+  summary: This is sample service getting a list of cats
+  description: Remove this from your project
+  tags:
+    - Cats
+
+  parameters:
+    - $ref: "../data/param.yml#/tag"
+
+  responses:
+    200:
+      $ref: "../data/response.yml#/CATS_LIST"
+    400:
+      $ref: "../data/response.yml#/BAD_REQUEST"
+    404:
+      $ref: "../data/response.yml#/NOT_FOUND"
+    408:
+      $ref: "../data/response.yml#/TIME_OUT"
+    429:
+      $ref: "../data/response.yml#/TOO_MANY_REQUEST"
+    500:
+      $ref: "../data/response.yml#/SERVER_ERROR"
+    503:
+      $ref: "../data/response.yml#/SERVER_UNAVAILABLE"

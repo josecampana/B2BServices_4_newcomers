@@ -1,0 +1,1 @@
+module.exports.UNKNOWN_OWNER = 'unknown';

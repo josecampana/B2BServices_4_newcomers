@@ -1,0 +1,1 @@
+module.exports.get = async () => `https://cataas.com/cat/gif`;

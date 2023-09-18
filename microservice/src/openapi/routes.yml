@@ -1,5 +1,0 @@
-#v1
-/v1/{retailUnit}/{language}/sample:
-  $ref: "./actions/sample_list.yml"
-/v1/{retailUnit}/{language}/sample/{sampleId}:
-  $ref: "./actions/sample.yml"

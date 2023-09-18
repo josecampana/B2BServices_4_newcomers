@@ -1,0 +1,4 @@
+#remove the following objects in your real project:
+SampleResponse:
+  description: this is an example response you need to remove from your project
+  type: array

@@ -1,0 +1,5 @@
+#v1
+/v1/pets:
+  $ref: "./actions/pets.yml"
+/v1/pets/cats:
+  $ref: "./actions/cats.yml"

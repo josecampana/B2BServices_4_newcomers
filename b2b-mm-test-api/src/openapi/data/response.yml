@@ -1,0 +1,92 @@
+OK:
+  description: OK
+  content:
+    application/json:
+      schema:
+        type: object
+BAD_REQUEST:
+  description: Bad request. Server can't process the request because of invalid request format
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Bad request" }
+INVALID_TOKEN:
+  description: Invalid credentials. Missing, invalid or expired bearer token
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Missing, invalid or expired token" }
+FORBIDDEN:
+  description: The provided credentials does not have access to the requested resource
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example:
+          {
+            "message": "The provided credentials does not have access to the requested resource",
+          }
+NOT_FOUND:
+  description: Not found
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Not found" }
+SERVER_ERROR:
+  description: Internal Server Error. A generic error message, given when an unexpected condition was encountered and no more specific message is suitable
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Internal server error" }
+GONE:
+  description: Checkout expired or no longer exists
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Checkout expired or no longer exists" }
+CONFLICT:
+  description: Conflict with values at body
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Conflict with values at body" }
+
+SERVER_UNAVAILABLE:
+  description: Service Unavailable
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Service Unavailable" }
+
+TOO_MANY_REQUEST:
+  description: Too many request. The user has sent too many request in a given amount of time
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Too many request" }
+TIME_OUT:
+  description: Time out. The call exceded the waiting time and the server decided to close the connection
+  content:
+    application/problem+json:
+      schema:
+        type: object
+        example: { "message": "Time out" }
+
+NO_CONTENT:
+  description: Project update no content response
+
+# Remove the following responses on your real project:
+PETS_LIST:
+  description: Time out. The call exceded the waiting time and the server decided to close the connection
+  content:
+    application/problem+json:
+      schema:
+        $ref: "./schema.yml#/SampleResponse"

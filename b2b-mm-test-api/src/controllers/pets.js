@@ -1,0 +1,1 @@
+module.exports.list = (_, res) => res.send(['cats', 'dogs']);

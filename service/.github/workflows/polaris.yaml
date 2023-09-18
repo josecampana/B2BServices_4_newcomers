@@ -1,0 +1,29 @@
+# dev > main
+name: Polaris
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  sast:
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/polaris.yaml@main
+    with:
+      scan-enabled: true
+      project-name: Business/cats
+      project-version: main
+    secrets:
+      polaris-url: ${{ secrets.POLARIS_URL }}
+      polaris-token: ${{ secrets.POLARIS_APIKEY }}
+  notify:
+    needs: sast
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/notify.yaml@main
+    with:
+      critical: ${{ needs.sast.outputs.critical }}
+      high: ${{ needs.sast.outputs.high }}
+      medium: ${{ needs.sast.outputs.medium }}
+      summary-url: ${{ needs.sast.outputs.summary-url }}
+    secrets:
+      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

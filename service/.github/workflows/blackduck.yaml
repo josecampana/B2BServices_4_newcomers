@@ -1,0 +1,20 @@
+name: BlackDuck
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  sca:
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/blackduck.yaml@main
+    with:
+      project-name: Business/cats
+      project-version: main
+      ospo-analyzer-enabled: false
+      github-notifier-enabled: false
+    secrets:
+      blackduck-url: ${{ secrets.BLACKDUCK_URL }}
+      blackduck-token: ${{ secrets.BLACKDUCK_APIKEY }}
+      slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}

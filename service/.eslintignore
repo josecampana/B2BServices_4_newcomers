@@ -1,0 +1,7 @@
+.gitignore
+.prettierignore
+package-lock.json
+CHANGELOG.md
+dist
+/coverage/
+/node_modules/

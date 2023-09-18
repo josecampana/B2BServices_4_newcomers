@@ -1,0 +1,8 @@
+name: Pull Request Pipeline
+
+on:
+  pull_request:
+
+jobs:
+  pullrequest:
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/pullrequest.yaml@main

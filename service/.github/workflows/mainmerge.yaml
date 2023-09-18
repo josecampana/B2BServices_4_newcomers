@@ -1,0 +1,10 @@
+name: Main Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mainmerge:
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/mainmerge.yaml@main

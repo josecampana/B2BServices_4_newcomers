@@ -1,0 +1,35 @@
+get:
+  operationId: v1.sample.get
+  summary: This is sample service
+  description: Remove this from your project
+  tags:
+    - Cats
+
+  parameters:
+    - $ref: "../data/param.yml#/retailUnit"
+    - $ref: "../data/param.yml#/language"
+    - in: path
+      name: sampleId
+      required: true
+      description: language (en, es, gl ...)
+      schema:
+        type: string
+        example: "cute"
+
+  responses:
+    200:
+      $ref: "../data/response.yml#/SAMPLE"
+    400:
+      $ref: "../data/response.yml#/BAD_REQUEST"
+    404:
+      $ref: "../data/response.yml#/NOT_FOUND"
+    408:
+      $ref: "../data/response.yml#/TIME_OUT"
+    429:
+      $ref: "../data/response.yml#/TOO_MANY_REQUEST"
+    500:
+      $ref: "../data/response.yml#/SERVER_ERROR"
+    503:
+      $ref: "../data/response.yml#/SERVER_UNAVAILABLE"
+    504:
+      $ref: "../data/response.yml#/TIME_OUT"

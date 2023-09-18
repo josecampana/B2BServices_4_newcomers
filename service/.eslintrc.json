@@ -1,0 +1,35 @@
+{
+  "extends": ["eslint:recommended", "eslint-config-prettier"],
+  "env": {
+    "commonjs": true,
+    "es2020": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "globals": {
+    "System": "readonly"
+  },
+  "rules": {
+    "consistent-return": "off",
+    "func-names": "off",
+    "linebreak-style": "off",
+    "max-len": "off",
+    "prefer-spread": 0,
+    "no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}

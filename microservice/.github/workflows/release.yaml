@@ -1,0 +1,10 @@
+name: Release Pipeline
+
+on:
+  create:
+
+jobs:
+  release:
+    uses: ingka-group-digital/b2b-workflows/.github/workflows/release.yaml@main
+    with:
+      repository-name: micro-service

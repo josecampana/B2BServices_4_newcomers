@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install lint-staged
+npm run dependencies:check || (echo "❌ To upgrade package.json easier 🆙 npm run dependencies:update"; false)

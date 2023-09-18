@@ -1,0 +1,74 @@
+git --version
+============================ lunes, 18 de septiembre de 2023, 12:09:04 CEST ============================
+options:
+projectDir=/users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1
+name=micro-service
+basePath=test/api
+gitBranch=main
+running: b2b-service-next/script.js
+running: b2b-service-next/create.js
+git -C /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1 init
+git -C /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1 checkout -b main
+copy /Users/jocam18/.npm/_npx/c023a33469a4c60f/node_modules/@mad/churri/receipts/b2b-service-next/assets to /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1
+renaming /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/vscode to /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.vscode
+renaming /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/gitignore to /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.gitignore
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.github/workflows/blackduck.yaml
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.github/workflows/release.yaml
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.github/workflows/polaris.yaml
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/.github/workflows/mainmerge.yaml
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/src/openapi/openapi.yml
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/README.md
+replaced variables in /users/jocam18/projects/crocket/juniors/b2b_services_4_joses/api1/config/default.js
+npm i @b2b/service-next@latest @b2b/fetch@latest @b2b/logger@latest
+
+added 183 packages, and audited 184 packages in 11s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm i -D @commitlint/cli@17 @commitlint/config-conventional@17 eslint@8 husky@8 jest@29 lint-staged@13 markdownlint-cli nodemon@3 prettier@2 prettier-package-json@2 eslint-config-prettier@latest npm-run-all@4 npm-check-updates@16 eslint-plugin-prettier@4
+
+added 891 packages, and audited 1075 packages in 40s
+
+181 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm run format
+
+> micro-service@0.0.1 format
+> npm run format:eslint && npm run format:prettier
+
+
+> micro-service@0.0.1 format:eslint
+> eslint --ext .js,.html . --fix
+
+
+> micro-service@0.0.1 format:prettier
+> prettier "**/*.{js,md}" "package.json" --write
+
+.github/PULL_REQUEST_TEMPLATE.md 78ms
+commitlint.config.js 70ms
+config/default.js 14ms
+config/production.js 4ms
+config/test.js 4ms
+jest.config.js 6ms
+README.md 72ms
+src/controllers/index.js 7ms
+src/controllers/sample.js 22ms
+src/index.js 4ms
+src/options.js 3ms
+src/parsers/index.js 2ms
+src/parsers/sample.js 8ms
+src/parsers/sample.test.js 12ms
+src/providers/index.js 4ms
+src/providers/sample.js 11ms
+src/providers/sample.test.js 14ms
+package.json 11ms
+npm run prepare
+
+> micro-service@0.0.1 prepare
+> husky install
+
+husky - Git hooks installed

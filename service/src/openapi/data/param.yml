@@ -1,0 +1,16 @@
+retailUnit:
+  name: retailUnit
+  required: true
+  in: path
+  description: retail unit (us, gb, es...)
+  schema:
+    type: string
+  example: es
+language:
+  name: language
+  required: true
+  in: path
+  description: language (en, es, gl ...)
+  schema:
+    type: string
+  example: es

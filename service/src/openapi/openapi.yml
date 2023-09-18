@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: cats
+  description: DESCRIBE_YOUR_PROJECT
+  version: 1.0.0
+  license:
+    name: INGKA GROUP INNER SOURCE LICENCE VERSION 1.0
+    url: https://github.com/ingka-group-digital/cats/blob/main/LICENCE.md
+  contact:
+    name: YOUR_TEAM_NAME
+    url: URL_TO_YOUR_TEAM_GITHUB
+    email: TEAM_EMAIL@ingka.com
+
+servers:
+  - url: https://services.ifb.ingka.com
+    description: PROD environment
+  - url: https://dev.services.ifb.ingka.com
+    description: DEV environment
+
+components:
+  schemas:
+    $ref: "./data/schema.yml"
+
+paths:
+  $ref: "./routes.yml"

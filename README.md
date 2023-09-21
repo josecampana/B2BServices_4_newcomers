@@ -11,6 +11,14 @@
 - @b2b/service and @b2b/service-next are not "La churrera"
 - Documentation at: https://bit.ly/b2bservice-next
 
+## ENV vars
+
+We use environment variables to change configurations between environments (local, development, production) and to inject secrets during the CloudRun.
+
+If the project is not too old, you will find the ENV vars that the project needs into the project's README. If not, I invite you to complete it.
+
+[Here](https://github.com/ingka-group-digital/b2b-shared-nodejs/blob/main/packages/b2b-service-next/documentation/config.md#env-variables) you can find a list of all the ENV variables you could use with @b2b/service-next
+
 
 ## How to up a project
 
@@ -179,9 +187,56 @@ delete:
   $ref: "./actions/products.yml"
 ```
 
+## Important files and directories of a modern project
 
+- config
+  - default.js
+  - production.js //config for production => default + production
+- src
+  - openapi: API definition in OpenAPI format
+  - controllers
+  - datasources: (:arrow_up: :construction: next proposal) composition of several providers to generate data
+    - parsers (:arrow_up: :construction: next proposal)
+  - providers: providers of data (APIs, databases...)
+    - parsers (:arrow_up: :construction: next proposal)
+  - ~~components~~: (:arrow_down: legacy) providers/datasources
+  - parsers (current location): parsers or transformations of providers/datasources
+  - ~~transformers:~~ (:arrow_down: legacy) parsers or transformations of providers/datasources
+  - index.js: main app
+  - options.js: the way to get current config depending on `NODE_ENV`
+  - constants.js: **centralizes all the constants** of the app are
+- sys
+  - node
+    - Dockerfile: the one we are using to deploy (BTW we use [nodejs LTS (alpine)](https://github.com/nodejs/release#release-schedule) image) => **please use LTS node ver in your local**
+- .gitignore
+- package.json
+- README.md: with important info about the project, how to run it, debug it, ENV vars needed...
 
+### Directory levels
 
+We are trying to keep 1 level from `./src` and adding an `index.js` in the directories so we ca do:
+
+```javascript
+//provider
+...
+const { product: parser } = require('../parsers');
+const { api } = require('../options');
+const { MAX_NUM_PRODUCTS } = require('../constants');
+
+module.exports.get = async ({retailUnit, language, transactionId} = {}) => {
+...
+```
+
+```javascript
+//controller
+const { product } = require('../providers');
+const { DEFAULT_X } = require('../options');
+
+module.exports.get = async(req, res) => {
+...
+```
+
+By making everything "requirable" at `../xxxx` level makes you faster not thinking on "where is located the provider or xxxx I need"
 
 ## Examples
 Open [b2b-service-cats.code-workspace](./b2b-service-cats.code-workspace) in VSCode or both projects in separate VSCode windows.

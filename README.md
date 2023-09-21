@@ -9,6 +9,8 @@
 - @b2b/service-next **only** supports [OPENAPI v3.0.3](https://spec.openapis.org/oas/v3.0.3) (Swagger support has been removed)
 - @b2b/service is not receiving updates anymore => migrate to @b2b/service-next
 - @b2b/service and @b2b/service-next are not "La churrera"
+- Do we say microservice or micro API? both
+- Do we say service or API? both
 - Documentation at: https://bit.ly/b2bservice-next
 
 ## ENV vars
@@ -19,8 +21,11 @@ If the project is not too old, you will find the ENV vars that the project needs
 
 [Here](https://github.com/ingka-group-digital/b2b-shared-nodejs/blob/main/packages/b2b-service-next/documentation/config.md#env-variables) you can find a list of all the ENV variables you could use with @b2b/service-next
 
+:warning: About `GOOGLE_APPLICATION_CREDENTIALS` env var: this variable is only needed in your local and is the **absolute path** to the json file that contains the **credentials to access Firestore**. 
+:warning: **Do not push this credentials file** to the repo, keep it outside the project's directory (in the parent dir for example or somewhere in your home dir you could reuse in all projects)
+:warning: **Do not push any secret** to the repo
 
-## How to up a project
+## Running a project
 
 Create a **launch.json** file into your project's **.vscode** directory. 
 

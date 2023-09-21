@@ -108,26 +108,26 @@ Check this doc: https://bit.ly/b2b-service-next-config
 Add the new route at `./src/openapi/routes.yml` following some API Rest best practices:
 
 - add versioning to endpoint
-  :o: `/v1/us/en/cart`
+  - :o: `/v1/us/en/cart`
 - use nouns instead of verbs: **the methods are the verbs! (GET, POST, PUT, DELETE, PATCH**
-  :x: `/v1/createCheckout?country=ES&language=ES`
-  :x: `/v1/getCheckout?id=CHECKOUT_ID&country=ES&language=ES`
-  :x: `/v1/editCheckout?id=CHECKOUT_ID&country=ES`
-  :x: `/v1/removeCheckout?id=CHECKOUT_ID&country=ES`
-  :o: POST `/v1/us/en/checkout`
-  :o: GET `/v1/us/en/checkout/CHECKOUT_ID`
-  :o: PUT `/v1/us/en/checkout/CHECKOUT_ID` or (PATCH)
-  :o: DELETE `/v1/us/en/checkout/CHECKOUT_ID`
+  - :x: `/v1/createCheckout?country=ES&language=ES`
+  - :x: `/v1/getCheckout?id=CHECKOUT_ID&country=ES&language=ES`
+  - :x: `/v1/editCheckout?id=CHECKOUT_ID&country=ES`
+  - :x: `/v1/removeCheckout?id=CHECKOUT_ID&country=ES`
+  - :o: POST `/v1/us/en/checkout`
+  - :o: GET `/v1/us/en/checkout/CHECKOUT_ID`
+  - :o: PUT `/v1/us/en/checkout/CHECKOUT_ID` or (PATCH)
+  - :o: DELETE `/v1/us/en/checkout/CHECKOUT_ID`
 - name collections with plurals => 
-  :x: `/v1/us/en/product`
-  :o: `/v1/us/en/products`
-  :o: `/v1/us/en/products/PRODUCT_ID` (getting a specific product from the list of products)
+  - :x: `/v1/us/en/product`
+  - :o: `/v1/us/en/products`
+  - :o: `/v1/us/en/products/PRODUCT_ID` (getting a specific product from the list of products)
 - nest endpoints to show relationships => 
-  :o: `/v1/us/en/products/PRODUCT_ID/variants` (variants of PRODUCT_ID)
-  :o: `/v1/us/en/products/PRODUCT_ID/price` (price of PRODUCT_ID)
-  :o: `/v1/us/en/products/PRODUCT_ID/availability` (availability of PRODUCT_ID)
+  - :o: `/v1/us/en/products/PRODUCT_ID/variants` (variants of PRODUCT_ID)
+  - :o: `/v1/us/en/products/PRODUCT_ID/price` (price of PRODUCT_ID)
+  - :o: `/v1/us/en/products/PRODUCT_ID/availability` (availability of PRODUCT_ID)
 - use query params (?) for filtering, sorting, paginate...
-  :o: `/v1/us/en/products?size=20&page=1&sort=PRICE&filter=white-color`
+  - :o: `/v1/us/en/products?size=20&page=1&sort=PRICE&filter=white-color`
 
 ### Action definitions
 
@@ -200,8 +200,6 @@ delete:
 - src
   - openapi: API definition in OpenAPI format
   - controllers
-  - datasources: (:arrow_up: :construction: next proposal) composition of several providers to generate data
-    - parsers (:arrow_up: :construction: next proposal)
   - providers: providers of data (APIs, databases...)
     - parsers (:arrow_up: :construction: next proposal)
   - ~~components~~: (:arrow_down: legacy) providers/datasources
@@ -234,7 +232,7 @@ module.exports.get = async ({retailUnit, language, transactionId} = {}) => {
 
 ```javascript
 //controller
-const { product } = require('../providers');
+const { product, checkout } = require('../providers');
 const { DEFAULT_X } = require('../options');
 
 module.exports.get = async(req, res) => {

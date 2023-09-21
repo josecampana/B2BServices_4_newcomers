@@ -110,9 +110,9 @@ Add the new route at `./src/openapi/routes.yml` following some API Rest best pra
 - add versioning to endpoint
   - :o: `/v1/us/en/cart`
 - use nouns instead of verbs: **the methods are the verbs! (GET, POST, PUT, DELETE, PATCH**
-  - :x: `/v1/createCheckout?country=ES&language=ES`
-  - :x: `/v1/getCheckout?id=CHECKOUT_ID&country=ES&language=ES`
-  - :x: `/v1/editCheckout?id=CHECKOUT_ID&country=ES`
+  - :x: `/v1/createCheckout?country=us&language=en`
+  - :x: `/v1/getCheckout?id=CHECKOUT_ID&country=us&language=en`
+  - :x: `/v1/editCheckout?id=CHECKOUT_ID&country=us&language=en`
   - :x: `/v1/removeCheckout?id=CHECKOUT_ID&country=ES`
   - :o: POST `/v1/us/en/checkout`
   - :o: GET `/v1/us/en/checkout/CHECKOUT_ID`

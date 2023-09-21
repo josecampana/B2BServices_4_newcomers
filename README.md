@@ -6,7 +6,7 @@
 - The framework allows the developer to focus in the tickets
 - We have 50% of the projects using @b2b/service that need to be migrated
 - @b2b/service-next configs are smaller because the framework manages a huge list of ENV vars for you.
-- @b2b/service-next only supports [OPENAPI](https://spec.openapis.org/oas/v3.0.3
+- @b2b/service-next only supports [OPENAPI v3.0.3](https://spec.openapis.org/oas/v3.0.3)
 - @b2b/service is not receiving updates anymore => migrate to @b2b/service-next
 - @b2b/service and @b2b/service-next are not "La churrera"
 - Documentation at: https://bit.ly/b2bservice-next
@@ -187,7 +187,7 @@ delete:
   $ref: "./actions/products.yml"
 ```
 
-## Important files and directories of a modern project
+## Important files and directories of a modern service/microservice project
 
 - config
   - default.js

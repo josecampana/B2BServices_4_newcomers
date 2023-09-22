@@ -190,7 +190,7 @@ delete:
 ```yaml
 # ./src/openapi/routes.yml
 ...
-/v1/:retailUnit/:language/products/:productId
+/v1/{retailUnit}/{language}/products/{productId}
   $ref: "./actions/products.yml"
 ```
 

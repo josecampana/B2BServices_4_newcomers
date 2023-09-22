@@ -1,6 +1,12 @@
-# O'Reilly "B2B Services for ~~dummies~~ Joses"
+# B2B Services for ~~dummies~~ newcomers
 
-## @b2b/service-next
+## Name convention
+
+- microservices: **b2b-mm-XXXXXX-api** (where XXXXXX is the name of the microservice)
+- services: **b2b-service-YYYYYY** (where YYYYYY is the name of the service)
+
+Please, try to no create services and microservices with long names to avoid problems with Terraform.
+## Our framework: ~~express~~ @b2b/service-next
 
 - Is a framework based in express created to propagate evolutions more easily (we have a huge amount of services and microservices that need to be maintained/evolved)
 - The framework allows the developer to focus in their Jira tickets
@@ -49,14 +55,14 @@ This is the easiest way to set up all the [**environment variables**](https://ww
       "skipFiles": ["<node_internals>/**"],
       "type": "node",
       "env": {
-        "LOG_LEVEL": "debug",
+        "LOG_LEVEL": "trace",
         "PORT": "3001"
-        //"GOOGLE_APPLICATION_CREDENTIALS": "./firestore.json"
+        //"GOOGLE_APPLICATION_CREDENTIALS": "/Users/fistrum/data/firestore.json"
       }
     },
     {
       "console": "integratedTerminal",
-      "name": "productions",
+      "name": "production",
       "request": "launch",
       "runtimeArgs": ["run-script", "dev"],
       "runtimeExecutable": "npm",
@@ -66,7 +72,7 @@ This is the easiest way to set up all the [**environment variables**](https://ww
         "LOG_LEVEL": "debug",
         "NODE_ENV": "production",
         "PORT": "3001"
-        //"GOOGLE_APPLICATION_CREDENTIALS": "./firestore.json"
+        //"GOOGLE_APPLICATION_CREDENTIALS": "/Users/fistrum/data/firestore.json"
       }
     },
     {
@@ -81,7 +87,7 @@ This is the easiest way to set up all the [**environment variables**](https://ww
         "LOG_LEVEL": "debug",
         "PORT": "3001",
         "NODE_ENV": "localhost"
-        //"GOOGLE_APPLICATION_CREDENTIALS": "./firestore.json"
+        //"GOOGLE_APPLICATION_CREDENTIALS": "/Users/fistrum/data/firestore.json"
       }
     }
   ]
@@ -203,7 +209,6 @@ delete:
   - openapi: API definition in OpenAPI format
   - controllers
   - providers: providers of data (APIs, databases...)
-    - parsers (:arrow_up: :construction: next proposal)
   - ~~components~~: (:arrow_down: legacy) providers/datasources
   - parsers (current location): parsers or transformations of providers/datasources
   - ~~transformers:~~ (:arrow_down: legacy) parsers or transformations of providers/datasources
@@ -215,7 +220,10 @@ delete:
     - Dockerfile: the one we are using to deploy (BTW we use [nodejs LTS (alpine)](https://github.com/nodejs/release#release-schedule) image) => **please use LTS node ver in your local**
 - .gitignore
 - package.json
+- **.npmrc**: to allow build system to reach our @b2b modules in our artifactory
 - README.md: with important info about the project, how to run it, debug it, ENV vars needed...
+
+You could check a typical [package.json example here](./b2b-mm-test-api/package.json)
 
 ### Directory levels
 
@@ -242,6 +250,39 @@ module.exports.get = async(req, res) => {
 ```
 
 By making everything "requirable" at `../xxxx` level makes you faster not thinking on "where is located the provider or xxxx I need"
+
+## Curl VS Postman
+
+Sometimes, it is really useful to get the **curl call** to import it into Postman (for example).
+
+### Getting the curl from the documentation
+
+From the API's documentation page, go to the endpoint you want to get the curl and push the "Try it out" button. This will allow you to modify the paramenters. Then push "Execute" button to make the call.
+
+After getting the call, you will see (in the Responses section) the Snippets. Choose CURL (bash) and click in the copy button.
+
+![](docs/docs_ui.png)
+
+Now go to Postman, create a new tab and just paste the curl into the text box. It will configure the method, url, headers, parameters, body (for a POST, PUT, PATCH...), ...
+
+![](docs/postman.png)
+
+![](docs/postman2.png)
+
+
+### Getting curl from browser
+
+In a website, for example https://ifb.ikea.com/es/es/home, [right click and select "Inspect"](https://developer.chrome.com/docs/devtools/open/). Open Network tab and reload the page to recap all the network calls.
+
+![](docs/network.png)
+
+Filter by Fetch/XHR to ignore images, js and other files. Select a call and then right click => copy => copy as cURL
+
+![](docs/curl.png)
+
+This is a great way to send a collegue a failed call for investigations to try to reproduce in a local environment and debug.
+
+
 
 ## Examples
 Open [b2b-service-cats.code-workspace](./b2b-service-cats.code-workspace) in VSCode or both projects in separate VSCode windows.
